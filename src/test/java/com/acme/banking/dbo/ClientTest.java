@@ -15,7 +15,7 @@ import static org.hamcrest.beans.HasPropertyWithValue.hasProperty;
 
 
 @DisplayName("Test suite")
-public class ClientTest {
+public class ClientTest { //IT, ST
     @Test @Disabled("temporary disabled")
     @DisplayName("Test case")
     public void shouldStorePropertiesWhenCreated() {
@@ -31,6 +31,7 @@ public class ClientTest {
 
         //region then
         //Junit5:
+        /*
         assertAll("Client store its properties",
                 () -> assertEquals(clientId, sut.getId()),
                 () -> assertEquals(clientName, sut.getName())
@@ -43,9 +44,11 @@ public class ClientTest {
                 hasProperty("id", equalTo(clientId)),
                 hasProperty("name", is(clientName))
         ));
+        */
 
         //AssertJ:
         org.assertj.core.api.Assertions.assertThat(sut)
+//                .isNotNull().hasNoNullFieldsOrProperties()
                 .hasFieldOrPropertyWithValue("id", clientId)
                 .hasFieldOrPropertyWithValue("name", clientName);
         //endregion
